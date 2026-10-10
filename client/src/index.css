@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-white text-ink font-sans text-[15px] leading-relaxed;
+  }
+  h1, h2, h3, h4 {
+    @apply text-ink font-semibold tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500/40 ring-offset-1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-line rounded-xl shadow-card;
+  }
+  .input {
+    @apply w-full h-11 rounded-lg border border-line bg-white px-3.5 text-[15px] text-ink placeholder:text-ink-muted/70
+      transition-colors focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100 disabled:bg-canvas disabled:text-ink-muted;
+  }
+  textarea.input {
+    @apply h-auto py-2.5 leading-relaxed;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink mb-1.5;
+  }
+  .table-base {
+    @apply w-full text-sm;
+  }
+  .table-base th {
+    @apply text-left font-medium text-ink-muted text-xs uppercase tracking-wide px-4 py-3 bg-canvas border-b border-line whitespace-nowrap;
+  }
+  .table-base td {
+    @apply px-4 py-3.5 border-b border-line align-middle;
+  }
+  .table-base tbody tr:last-child td {
+    @apply border-b-0;
+  }
+  .table-base tbody tr {
+    @apply hover:bg-canvas/60 transition-colors;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-area { box-shadow: none !important; border: none !important; }
+}
